@@ -28,9 +28,9 @@ btrfs subvolume create /mnt/snapshots
 umount /mnt
 
 #mount subvolumes
-mount -o noatime,compress=zstd,subvol=root /dev/sdb5 /mnt
-mount --mkdir -o noatime,compress=zstd,subvol=home /dev/sdb5 /mnt/home
-mount --mkdir -o noatime,compress=zstd,subvol=snapshots /dev/sdb5 /mnt/.snapshots
+mount -o noatime,compress=zstd,subvol=root /dev/$installDrive /mnt
+mount --mkdir -o noatime,compress=zstd,subvol=home /dev/$installDrive /mnt/home
+mount --mkdir -o noatime,compress=zstd,subvol=snapshots /dev/$installDrive /mnt/.snapshots
 mount --mkdir /dev/$efiDrive /mnt/boot/efi
 swapon /dev/$swapDrive
 
