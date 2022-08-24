@@ -37,13 +37,14 @@ mount --mkdir /dev/$efiDrive /mnt/boot/efi
 swapon /dev/$swapDrive
 
 #update keyrings to prevent packages failing to install
-sudo pacman -Sy archlinux-keyring
+sudo pacman --noconfirm -S archlinux-keyring
 
 #Base install
 pacstrap /mnt base base-devel btrfs-progs efibootmgr git grep grub \
 intel-ucode iwd linux-firmware linux linux-zen linux-headers \
 linux-zen-headers nano networkmanager sudo xdg-user-dirs xdg-user-dirs-gtk \
-xdg-utils xf86-input-synaptics archlinux-keyring
+xdg-utils xf86-input-synaptics archlinux-keyring pacman-contrib \
+--noconfirm
 
 genfstab -U /mnt > /mnt/etc/fstab
 #remark: genfstab includes subvolid into fstab. Might create problems during rollback with snapper.
