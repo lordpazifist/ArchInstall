@@ -6,6 +6,8 @@
 # Version 1
 # Date 24.08.2022
 
+echo "prepare Drives with gparted"
+
 echo "set install drive to: "
 read installDrive
 
