@@ -36,6 +36,7 @@ mount --mkdir -o noatime,compress=zstd,subvol=snapshots /dev/$installDrive /mnt/
 mount --mkdir /dev/$efiDrive /mnt/boot/efi
 swapon /dev/$swapDrive
 
+#update keyrings to prevent packages failing to install
 sudo pacman -Sy archlinux-keyring
 
 #Base install
